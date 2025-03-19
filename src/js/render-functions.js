@@ -27,12 +27,24 @@ export function renderPage(data) {
       alt="${tags}"
     />
   </a>
-  <div class="info">
-            <p><b>Likes:</b> ${likes}</p>
-            <p><b>Views:</b> ${views}</p>
-            <p><b>Comments:</b> ${comments}</p>
-            <p><b>Downloads:</b> ${downloads}</p>
-  </div>
+  <ul class="gallery-info">
+            <li class="gallery-info-item">
+              <span class="gallery-info-title">Likes</span> 
+              <span class="gallery-info-value">${likes}</span>
+            </li>
+            <li class="gallery-info-item">
+              <span class="gallery-info-title">Views</span> 
+              <span class="gallery-info-value">${views}</span>
+            </li>
+            <li class="gallery-info-item">
+              <span class="gallery-info-title">Comments</span> 
+              <span class="gallery-info-value">${comments}</span>
+            </li>
+            <li class="gallery-info-item">
+              <span class="gallery-info-title">Downloads</span> 
+              <span class="gallery-info-value">${downloads}</span>
+            </li>
+  </ul>
 </li>
   `
     )

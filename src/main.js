@@ -35,10 +35,9 @@ function findImage(event) {
       .catch(error => {
         console.error(error);
       })
-      .finally(() => {
-        form.reset();
+      .finally(() => {        
         showLoader.classList.add('hidden');
       });
   }
-  
+  form.reset();  
 }
