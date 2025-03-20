@@ -2,17 +2,18 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 import getData from './js/pixabay-api';
-import { renderPage } from './js/render-functions';
+import { renderPage,clearGallary } from './js/render-functions';
 
 const form = document.querySelector('.form');
 const showLoader = document.querySelector('.loader');
 form.addEventListener('submit', findImage);
 
 function findImage(event) {
-  event.preventDefault();
-    
-  const searchName = form.elements['search-text'].value.trim();
+  event.preventDefault();    
+  const searchName = form.elements['search-text'].value.toLowerCase().trim();
 
+  clearGallary();
+  
   if (searchName === '') {
     iziToast.error({
       title: 'Error',
@@ -32,8 +33,12 @@ function findImage(event) {
           renderPage(data);
         }
       })
-      .catch(error => {
-        console.error(error);
+      .catch(() => {
+        iziToast.error({
+          title: 'Error',
+          message:
+            'Something wrong, try again later!',
+        });
       })
       .finally(() => {        
         showLoader.classList.add('hidden');
